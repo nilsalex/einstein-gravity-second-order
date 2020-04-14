@@ -1,6 +1,7 @@
 from cadabra2 import *
 
 Indices(Ex(r'''{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z#}'''), Ex(r'''fourD, position=independent''') )
+Integer(Ex(r'''{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z#}'''), Ex(r'''0..3''') )
 
 KroneckerDelta(Ex(r'''\delta{#}'''), Ex(r'''''') )
 Symmetric(Ex(r'''g_{a b}'''), Ex(r'''''') )
@@ -18,6 +19,8 @@ Depends(Ex(r'''R{#}'''), Ex(r'''\partial{#})''') )
 
 Weight(Ex(r'''h{#}'''), Ex(r'''label=l, value=1'''))
 WeightInherit(Ex(r'''\partial{#}'''), Ex(r'''label=all, type=multiplicative'''))
+
+SortOrder(Ex(r'''\eta_{a b},\eta^{a b}'''), Ex(r''''''))
 
 ruleMetricUp = Ex(r'''g^{a b} -> \eta^{a b} + h^{a b}''')
 ruleMetricDown = Ex(r'''g_{a b} -> \eta_{a b} - \eta_{a p} \eta_{b q} h^{p q}''')
@@ -39,3 +42,12 @@ ruleEtaEta3 = Ex(r'''\eta_{p a} \eta^{a q} -> \delta^{q}_{p}''')
 ruleEtaEta4 = Ex(r'''\eta_{p a} \eta^{q a} -> \delta^{q}_{p}''')
 ruleEtaEta5 = Ex(r'''\eta_{a b} \eta^{a b} -> 4''')
 ruleEtaEta6 = Ex(r'''\eta_{a b} \eta^{b a} -> 4''')
+
+ruleHarmonic1 = Ex(r'''\partial_{a}{h^{a p}} -> 0''')
+ruleHarmonic2 = Ex(r'''\partial_{a}{h^{p a}} -> 0''')
+ruleHarmonic3 = Ex(r'''\partial_{a p}{h^{a q}} -> 0''')
+ruleHarmonic4 = Ex(r'''\partial_{a p}{h^{q a}} -> 0''')
+ruleHarmonic5 = Ex(r'''\partial_{p a}{h^{a q}} -> 0''')
+ruleHarmonic6 = Ex(r'''\partial_{p a}{h^{q a}} -> 0''')
+ruleHarmonic7 = Ex(r'''\partial_{a b}{h^{a b}} -> 0''')
+ruleHarmonic8 = Ex(r'''\partial_{a b}{h^{b a}} -> 0''')
