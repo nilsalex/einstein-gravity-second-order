@@ -88,10 +88,10 @@ def three_plus_one_metric(e):
   substitute(e, Ex(r'''\eta^{a 0} -> \delta^{a}_{0}'''), repeat=True)
   substitute(e, Ex(r'''\eta^{a b} -> \delta^{a}_{0} \delta^{b}_{0} - \delta^{a}_{\alpha} \delta^{b}_{\beta} \gamma^{\alpha \beta}'''), repeat=True)
 
-  substitute(e, Ex(r'''h^{0 0} -> \Phi'''), repeat=True)
-  substitute(e, Ex(r'''h^{0 a} -> \delta^{a}_{0} \Phi'''), repeat=True)
-  substitute(e, Ex(r'''h^{a 0} -> \delta^{a}_{0} \Phi'''), repeat=True)
-  substitute(e, Ex(r'''h^{a b} -> \delta^{a}_{0} \delta^{b}_{0} \Phi + \delta^{a}_{\alpha} \delta^{b}_{\beta} \gamma^{\alpha \beta} \Phi'''), repeat=True)
+  substitute(e, Ex(r'''h^{0 0} -> -2 \Phi'''), repeat=True)
+  substitute(e, Ex(r'''h^{0 a} -> -2 \delta^{a}_{0} \Phi'''), repeat=True)
+  substitute(e, Ex(r'''h^{a 0} -> -2 \delta^{a}_{0} \Phi'''), repeat=True)
+  substitute(e, Ex(r'''h^{a b} -> -2 \delta^{a}_{0} \delta^{b}_{0} \Phi - 2 \delta^{a}_{\alpha} \delta^{b}_{\beta} \gamma^{\alpha \beta} \Phi'''), repeat=True)
 
 def three_plus_one_partial(e):
   substitute(e, Ex(r'''\partial_{a}{Q??} -> \delta^{0}_{a} \partial_{0}{Q??} + \delta^{\alpha}_{a} \partial_{\alpha}{Q??}'''))
@@ -102,11 +102,11 @@ ruleMetricDown = Ex(r'''g_{a b} -> \eta_{a b} - \eta_{a p} \eta_{b q} h^{p q}'''
 
 ruleChristoffel = Ex(r'''\Gamma^{a}_{b c} -> 1/2 g^{a p} (\partial_{b}{g_{p c}} + \partial_{c}{g_{p b}} - \partial_{p}{g_{b c}})''')
 ruleRicci = Ex(r'''R_{a b} -> \partial_{p}{\Gamma^{p}_{a b}} - \partial_{b}{\Gamma^{p}_{p a}} + \Gamma^{p}_{p q} \Gamma^{q}_{a b} - \Gamma^{p}_{b q} \Gamma^{q}_{p a}''')
-ruleEinstein = Ex(r'''G_{a b} -> R_{a b} - 1/2 g_{a b} g^{p q} R_{p q}''')
+ruleEinstein = Ex(r'''G^{a b} -> g^{a p} g^{b q} R_{p q} - 1/2 g^{a b} g^{p q} R_{p q}''')
 
-ruleEvalEtaUp = Ex(r'''\eta^{t t} = 1, \eta^{t x} = 0, \eta^{t y} = 0, \eta^{t z} = 0, \eta^{x x} = -1, \eta^{x y} = 0, \eta^{x z} = 0, \eta^{y y} = -1, \eta^{y z} = 0, \eta^{z z} = -1''')
-ruleEvalEtaDown = Ex(r'''\eta_{t t} = 1, \eta_{t x} = 0, \eta_{t y} = 0, \eta_{t z} = 0, \eta_{x x} = -1, \eta_{x y} = 0, \eta_{x z} = 0, \eta_{y y} = -1, \eta_{y z} = 0, \eta_{z z} = -1''')
-ruleEvalH = Ex(r'''h^{t t} = \Phi, h^{t x} = 0, h^{t y} = 0, h^{t z} = 0, h^{x x} = \Phi, h^{x y} = 0, h^{x z} = 0, h^{y y} = \Phi, h^{y z} = 0, h^{z z} = \Phi''')
+# ruleEvalEtaUp = Ex(r'''\eta^{t t} = 1, \eta^{t x} = 0, \eta^{t y} = 0, \eta^{t z} = 0, \eta^{x x} = -1, \eta^{x y} = 0, \eta^{x z} = 0, \eta^{y y} = -1, \eta^{y z} = 0, \eta^{z z} = -1''')
+# ruleEvalEtaDown = Ex(r'''\eta_{t t} = 1, \eta_{t x} = 0, \eta_{t y} = 0, \eta_{t z} = 0, \eta_{x x} = -1, \eta_{x y} = 0, \eta_{x z} = 0, \eta_{y y} = -1, \eta_{y z} = 0, \eta_{z z} = -1''')
+# ruleEvalH = Ex(r'''h^{t t} = \Phi, h^{t x} = 0, h^{t y} = 0, h^{t z} = 0, h^{x x} = \Phi, h^{x y} = 0, h^{x z} = 0, h^{y y} = \Phi, h^{y z} = 0, h^{z z} = \Phi''')
 
 rulegg1 = Ex(r'''g_{a p} g^{a q} -> \delta^{q}_{p}''')
 rulegg2 = Ex(r'''g_{a p} g^{q a} -> \delta^{q}_{p}''')
